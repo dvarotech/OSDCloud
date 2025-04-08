@@ -1,1 +1,3 @@
-Start-OSDCloud -OSVersion 'Windows 10' -OSBuild 20H2 -OSEdition Enterprise -OSLanguage en-us -OSLicense Volume
+Set-ExecutionPolicy RemoteSigned -Force
+Install-Module OSD -Force
+StartOSDCloud "-OSVersion 'Windows 11' -OSBuild 24H2 -OSEdition Pro -OSLanguage de-de -OSLicense Retail"
