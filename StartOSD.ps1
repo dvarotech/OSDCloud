@@ -1,2 +1,1 @@
-Write-Host hello this is a test
-start-sleep 300
+Start-OSDCloud -OSName "Windows 11" -OSEdition "Professional" -Firmware -Restart
