@@ -21,5 +21,7 @@ winget install -e --silent --accept-source-agreements --accept-package-agreement
 winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Office
 
 
-Rename-Computer -NewName (Read-Host "Enter the new computer name") -Force
+
+$newName = Read-Host "Enter the new computer name"
 Add-Computer -DomainName "arrow.local" -Credential "arrow\"
+Rename-Computer -NewName $newName -Restart
