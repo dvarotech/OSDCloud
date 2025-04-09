@@ -1,5 +1,7 @@
 (New-Object System.Net.WebClient).DownloadFile("https://merlot.centrastage.net/csm/profile/downloadAgent/513d13b1-2a61-460f-8f2a-730c64acb7c4", "$env:TEMP/AgentInstall.exe");start-process "$env:TEMP/AgentInstall.exe"
 
+Import-Module PowerShellGet
+Set-PSRepository -Name msstore -InstallationPolicy Trusted
 Install-Module -Name winget-install -Repository PSGallery -Force -AllowClobber
 winget-install -Force
 
