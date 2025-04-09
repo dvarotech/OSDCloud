@@ -1,7 +1,8 @@
 powercfg -change -standby-timeout-ac 0
 powercfg -change -monitor-timeout-ac 0
 
-winget source add msstore https://storeedgefd.dsx.mp.microsoft.com/v9.0/microsoftstore
+winget source remove msstore
+winget source add msstore https://storeedgefd.dsx.mp.microsoft.com/v9.0
 winget source update
 
 
