@@ -14,5 +14,6 @@ winget install VideoLAN.VLC
 winget install Microsoft.OneDrive
 winget install Microsoft.Office
 
+
 Rename-Computer -NewName (Read-Host "Enter the new computer name") -Force
 Add-Computer -DomainName arrow.local -Server arrow\core-dc-02 -PassThru -Verbose
