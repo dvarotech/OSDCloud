@@ -1,7 +1,7 @@
 (New-Object System.Net.WebClient).DownloadFile("https://merlot.centrastage.net/csm/profile/downloadAgent/513d13b1-2a61-460f-8f2a-730c64acb7c4", "$env:TEMP/AgentInstall.exe");start-process "$env:TEMP/AgentInstall.exe"
 
 
-winget install Dell.CommandUpdate
+winget -e --silent --accept-source-agreements --accept-package-agreements install Dell.CommandUpdate
 winget install Microsoft.Teams
 winget install Microsoft.Edge
 winget install Google.Chrome
