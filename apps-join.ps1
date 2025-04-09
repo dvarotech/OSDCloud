@@ -22,4 +22,4 @@ winget install -e --silent --accept-source-agreements --accept-package-agreement
 
 
 Rename-Computer -NewName (Read-Host "Enter the new computer name") -Force
-Add-Computer -DomainName arrow.local -Server arrow\core-dc-02 -PassThru -Verbose
+Add-Computer -DomainName "arrow.local" -Credential "arrow\"
