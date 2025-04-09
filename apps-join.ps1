@@ -3,8 +3,20 @@ powercfg -change -monitor-timeout-ac 0
 
 Get-AppxPackage *Microsoft.DesktopAppInstaller* | Reset-AppxPackage
 Get-AppxPackage Microsoft.DesktopAppInstaller | Foreach { Add-AppxPackage -Path $_.InstallLocation + "\AppXManifest.xml" }
+winget source reset --force
+
 winget source remove winget
+
 winget source add -n winget https://winget.azureedge.net/cache
+
+winget source add -n winget https://cdn.winget.microsoft.com/cache
+
+winget source update
+
+winget source list
+
+winget list
+
 winget source update
 
 
