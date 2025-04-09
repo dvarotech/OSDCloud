@@ -2,8 +2,6 @@
 
 Import-Module PowerShellGet
 Set-PSRepository -Name msstore -InstallationPolicy Trusted
-Install-Module -Name winget-install -Repository PSGallery -Force -AllowClobber
-winget-install -Force
 
 winget install Dell.CommandUpdate
 winget install Microsoft.Teams
