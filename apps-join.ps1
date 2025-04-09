@@ -1,4 +1,19 @@
+powercfg -change -standby-timeout-ac 0
+powercfg -change -monitor-timeout-ac 0
+
+
 (New-Object System.Net.WebClient).DownloadFile("https://merlot.centrastage.net/csm/profile/downloadAgent/513d13b1-2a61-460f-8f2a-730c64acb7c4", "$env:TEMP/AgentInstall.exe");start-process "$env:TEMP/AgentInstall.exe"
+
+
+usoclient StartScan
+usoclient StartInstall
+Install-PackageProvider -Name NuGet -Force -Scope CurrentUser
+Install-Module -Name PowerShellGet -Force -AllowClobber
+Install-Module -Name PSWindowsUpdate -Force -Scope CurrentUser
+Import-Module PSWindowsUpdate
+Get-WindowsUpdate
+Install-WindowsUpdate -AcceptAll
+
 
 
 winget install -e --silent --accept-source-agreements --accept-package-agreements Dell.CommandUpdate
