@@ -1,6 +1,9 @@
 powercfg -change -standby-timeout-ac 0
 powercfg -change -monitor-timeout-ac 0
 
+winget source add msstore https://storeedgefd.dsx.mp.microsoft.com/v9.0/microsoftstore
+winget source update
+
 
 (New-Object System.Net.WebClient).DownloadFile("https://merlot.centrastage.net/csm/profile/downloadAgent/513d13b1-2a61-460f-8f2a-730c64acb7c4", "$env:TEMP/AgentInstall.exe");start-process "$env:TEMP/AgentInstall.exe"
 
