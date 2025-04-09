@@ -2,6 +2,9 @@ powercfg -change -standby-timeout-ac 0
 powercfg -change -monitor-timeout-ac 0
 
 Get-AppxPackage *Microsoft.DesktopAppInstaller* | Reset-AppxPackage
+Get-AppxPackage Microsoft.DesktopAppInstaller | Foreach { Add-AppxPackage -Path $_.InstallLocation + "\AppXManifest.xml" }
+winget source reset --force
+winget source update
 
 
 (New-Object System.Net.WebClient).DownloadFile("https://merlot.centrastage.net/csm/profile/downloadAgent/513d13b1-2a61-460f-8f2a-730c64acb7c4", "$env:TEMP/AgentInstall.exe");start-process "$env:TEMP/AgentInstall.exe"
