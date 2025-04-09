@@ -23,5 +23,6 @@ winget install -e --silent --accept-source-agreements --accept-package-agreement
 
 
 $newName = Read-Host "Enter the new computer name"
+Rename-Computer -NewName $newName
+
 Add-Computer -DomainName "arrow.local" -Credential "arrow\"
-Rename-Computer -NewName $newName -Restart
