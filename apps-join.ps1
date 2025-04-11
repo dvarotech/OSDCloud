@@ -1,6 +1,8 @@
 powercfg -change -standby-timeout-ac 0
 powercfg -change -monitor-timeout-ac 0
 
+Set-ExecutionPolicy RemoteSi
+
 Import-Module PowerShellGet
 Install-Module -Name PSWindowsUpdate -Force -Scope CurrentUser
 Get-WindowsUpdate
@@ -27,6 +29,6 @@ winget install -e --silent --accept-source-agreements --accept-package-agreement
 winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.OneDrive
 winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Office
 
-
+Set-ExecutionPolicy Default
 
 Start-Process SystemPropertiesComputerName
