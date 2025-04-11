@@ -1,4 +1,4 @@
-Write-host Starting Windows Windows 11 Apps Build
+Write-host Starting Windows Windows 11 Apps Build v2
 
 #(New-Object System.Net.WebClient).DownloadFile("https://merlot.centrastage.net/csm/profile/downloadAgent/513d13b1-2a61-460f-8f2a-730c64acb7c4", "$env:TEMP/AgentInstall.exe");start-process "$env:TEMP/AgentInstall.exe"
 
@@ -6,7 +6,6 @@ powercfg -change -standby-timeout-ac 0
 powercfg -change -monitor-timeout-ac 0
 
 Add-AppxPackage -Path 'https://github.com/microsoft/winget-cli/releases/download/v1.7.11132/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle'
-
 
 Start-Sleep -Seconds 3
 
