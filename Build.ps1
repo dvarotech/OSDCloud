@@ -11,7 +11,11 @@ powercfg -change -monitor-timeout-ac 0
 
 Install-Script -Name Update-InboxApp -FORCE
 #Get-AppxPackage | Update-InboxApp
-Update-InboxApp "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe"
+#Update-InboxApp "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe"
+
+Install-Module microsoft.winget.client -Force -AllowClobber
+Import-Module microsoft.winget.client
+repair-wingetpackagemanager
 
 #ECHO Y | winget upgrade --all --include-unknown --accept-source-agreements --accept-package-agreements
 winget upgrade --all --include-unknown --accept-source-agreements --accept-package-agreements
