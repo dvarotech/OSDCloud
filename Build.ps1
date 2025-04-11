@@ -5,7 +5,32 @@ Write-host Starting Windows Windows 11 Apps Build
 powercfg -change -standby-timeout-ac 0
 powercfg -change -monitor-timeout-ac 0
 
-AppInstallerCLI.exe install "D:\AppInstaller.Msixbundle" --silent
+# Open the .msixbundle file
+Start-Process "D:\AppInstaller.Msixbundle"
+
+# Add a delay to wait for the installer to open
+Start-Sleep -Seconds 3
+
+# Add .NET assembly to use key simulation
+Add-Type -TypeDefinition @"
+using System;
+using System.Runtime.InteropServices;
+public class SendKeys {
+    [DllImport("user32.dll")]
+    public static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, uint dwExtraInfo);
+    public static byte VK_RETURN = 0x0D;  // Return key
+    public static uint KEYEVENTF_KEYUP = 0x02;
+    public static uint KEYEVENTF_KEYDOWN = 0x00;
+    public static void SendEnter() {
+        keybd_event(VK_RETURN, 0, KEYEVENTF_KEYDOWN, 0);
+        keybd_event(VK_RETURN, 0, KEYEVENTF_KEYUP, 0);
+    }
+}
+"@
+
+# Simulate pressing the Enter (OK) key
+[SendKeys]::SendEnter()
+
 
 #Get-AppxPackage -AllUsers | Foreach {Try {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml" -ErrorAction Stop} Catch {Write-Host "Failed to update $($_.Name): $_"}}
 
