@@ -1,4 +1,4 @@
-Write-host Starting Windows Windows 11 Apps Build v2
+Write-host Starting Windows Windows 11 Apps Build v3
 
 #(New-Object System.Net.WebClient).DownloadFile("https://merlot.centrastage.net/csm/profile/downloadAgent/513d13b1-2a61-460f-8f2a-730c64acb7c4", "$env:TEMP/AgentInstall.exe");start-process "$env:TEMP/AgentInstall.exe"
 
