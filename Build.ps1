@@ -30,5 +30,3 @@ Get-WindowsUpdate
  Install-WindowsUpdate -AcceptAll -IgnoreReboot
 
 Start-Process SystemPropertiesComputerName
-
-Set-ExecutionPolicy AllSigned
