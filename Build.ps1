@@ -9,7 +9,8 @@ Write-host Starting Windows Windows 11 Apps Build
 powercfg -change -standby-timeout-ac 0
 powercfg -change -monitor-timeout-ac 0
 
-Add-AppxPackage -RegisterByFamilyName -MainPackage Microsoft.DesktopAppInstaller_8wekyb3d8bbwe
+Install-Script -Name Update-InboxApp -FORCE
+Get-AppxPackage | Update-InboxApp
 
 #ECHO Y | winget upgrade --all --include-unknown --accept-source-agreements --accept-package-agreements
 winget upgrade --all --include-unknown --accept-source-agreements --accept-package-agreements
