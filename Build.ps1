@@ -8,7 +8,8 @@ powercfg -change -monitor-timeout-ac 0
 winget upgrade --all --include-unknown --accept-source-agreements --accept-package-agreements
 
 #Get-AppxPackage *AppInstaller* | Remove-AppxPackage
-#Add-AppxPackage -Path "D:\AppInstaller.Msixbundle" -ForceApplicationShutdow
+#Add-AppxPackage -Path "D:\AppInstaller.Msixbundle" -ForceApplicationShutdow 
+Add-AppxPackage -AppInstallerFile "D:\AppInstaller.Msixbundle"
 
 winget install -e --silent --accept-source-agreements --accept-package-agreements Dell.CommandUpdate
 winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Teams
