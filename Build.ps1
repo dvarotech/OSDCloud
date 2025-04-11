@@ -9,7 +9,7 @@ choco install office365business --version 18526.20146 -y
 powercfg -change -standby-timeout-ac 0
 powercfg -change -monitor-timeout-ac 0
 
-winget upgrade --all --include-unknown --accept-source-agreements --accept-package-agreements
+#winget upgrade --all --include-unknown --accept-source-agreements --accept-package-agreements
 
 #Get-AppxPackage *AppInstaller* | Remove-AppxPackage
 #Add-AppxPackage -Path "D:\AppInstaller.Msixbundle" -ForceApplicationShutdow 
