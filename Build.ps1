@@ -7,19 +7,19 @@ powercfg -change -monitor-timeout-ac 0
 
 Get-AppxPackage -AllUsers | Foreach {Try {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml" -ErrorAction Stop} Catch {Write-Host "Failed to update $($_.Name): $_"}}
 
-
+winget upgrade --all -e --silent --accept-source-agreements --accept-package-agreements
 winget install -e --silent --accept-source-agreements --accept-package-agreements Dell.CommandUpdate
-#winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Teams
-#winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Edge
-#winget install -e --silent --accept-source-agreements --accept-package-agreements Google.Chrome
-#winget install -e --silent --accept-source-agreements --accept-package-agreements Mozilla.Firefox
-#winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Teams
-#winget install -e --silent --accept-source-agreements --accept-package-agreements Adobe.Acrobat.Reader.64-bit
-#winget install -e --silent --accept-source-agreements --accept-package-agreements 7zip.7zip
-#winget install -e --silent --accept-source-agreements --accept-package-agreements WatchGuard.MobileVPNWithSSLClient
-#winget install -e --silent --accept-source-agreements --accept-package-agreements VideoLAN.VLC
-#winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.OneDrive
-#winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Office
+winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Teams
+winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Edge
+winget install -e --silent --accept-source-agreements --accept-package-agreements Google.Chrome
+winget install -e --silent --accept-source-agreements --accept-package-agreements Mozilla.Firefox
+winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Teams
+winget install -e --silent --accept-source-agreements --accept-package-agreements Adobe.Acrobat.Reader.64-bit
+winget install -e --silent --accept-source-agreements --accept-package-agreements 7zip.7zip
+winget install -e --silent --accept-source-agreements --accept-package-agreements WatchGuard.MobileVPNWithSSLClient
+winget install -e --silent --accept-source-agreements --accept-package-agreements VideoLAN.VLC
+winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.OneDrive
+winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Office
 
 $dcuPath = "C:\Program Files (x86)\Dell\CommandUpdate\dcu-cli.exe"
 Start-Process $dcuPath -ArgumentList "/scan" -Wait
