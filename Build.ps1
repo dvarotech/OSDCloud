@@ -31,6 +31,9 @@ public class SendKeys {
 # Simulate pressing the Enter (OK) key
 [SendKeys]::SendEnter()
 
+
+Start-Sleep -Seconds 180
+
 winget install -e --silent --accept-source-agreements --accept-package-agreements Dell.CommandUpdate
 winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Teams
 winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Edge
