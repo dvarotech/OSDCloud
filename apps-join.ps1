@@ -20,17 +20,14 @@ winget install -e --silent --accept-source-agreements --accept-package-agreement
 winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.OneDrive
 #winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Office
 
-Install-Module -Name PSWindowsUpdate -Force -Scope CurrentUser
-Import-Module PSWindowsUpdate
-Get-WindowsUpdate
-Install-WindowsUpdate -AcceptAll
-
-
-
 $dcuPath = "C:\Program Files (x86)\Dell\CommandUpdate\dcu-cli.exe"
 Start-Process $dcuPath -ArgumentList "/scan" -Wait
 Start-Process $dcuPath -ArgumentList "/applyUpdates -silent" -Wait
 
+Install-Module -Name PSWindowsUpdate -Force -Scope CurrentUser
+Import-Module PSWindowsUpdate
+Get-WindowsUpdate
+ Install-WindowsUpdate -AcceptAll -IgnoreReboot
 
 Start-Process SystemPropertiesComputerName
 
