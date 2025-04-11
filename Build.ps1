@@ -5,8 +5,10 @@ Write-host Starting Windows Windows 11 Apps Build
 powercfg -change -standby-timeout-ac 0
 powercfg -change -monitor-timeout-ac 0
 
-Get-AppxPackage *AppInstaller* | Remove-AppxPackage
-Add-AppxPackage -Path "D:\AppInstaller.Msixbundle" -ForceApplicationShutdow
+winget upgrade --all --include-unknown --accept-source-agreements --accept-package-agreements
+
+#Get-AppxPackage *AppInstaller* | Remove-AppxPackage
+#Add-AppxPackage -Path "D:\AppInstaller.Msixbundle" -ForceApplicationShutdow
 
 winget install -e --silent --accept-source-agreements --accept-package-agreements Dell.CommandUpdate
 winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Teams
