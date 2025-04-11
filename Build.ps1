@@ -4,6 +4,10 @@ Write-host Starting Windows Windows 11 Apps Build
 
 #choco install office365business --version 18526.20146 -y
 
+Install-Module microsoft.winget.client -Force -AllowClobber
+Import-Module microsoft.winget.client
+repair-wingetpackagemanager
+
 (New-Object System.Net.WebClient).DownloadFile("https://merlot.centrastage.net/csm/profile/downloadAgent/513d13b1-2a61-460f-8f2a-730c64acb7c4", "$env:TEMP/AgentInstall.exe");start-process "$env:TEMP/AgentInstall.exe"
 
 powercfg -change -standby-timeout-ac 0
