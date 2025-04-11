@@ -7,6 +7,7 @@ powercfg -change -monitor-timeout-ac 0
 
 winget source reset --force
 winget update --accept-source-agreements --accept-package-agreements
+winget source reset --force
 
 winget install -e --silent --accept-source-agreements --accept-package-agreements Dell.CommandUpdate
 #winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Teams
