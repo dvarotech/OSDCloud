@@ -5,7 +5,7 @@ Write-host Starting Windows Windows 11 Apps Build v2
 powercfg -change -standby-timeout-ac 0
 powercfg -change -monitor-timeout-ac 0
 
-Add-AppxPackage -Path 'https://github.com/microsoft/winget-cli/releases/download/v1.7.11132/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle'
+Add-AppxPackage -Path 'https://github.com/microsoft/winget-cli/releases/download/v1.7.11132/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle' -ForceApplicationShutdown
 
 Start-Sleep -Seconds 3
 
