@@ -9,7 +9,8 @@ Write-host Starting Windows Windows 11 Apps Build
 powercfg -change -standby-timeout-ac 0
 powercfg -change -monitor-timeout-ac 0
 
-winget upgrade --all --include-unknown --accept-source-agreements --accept-package-agreements
+ECHO Y | winget upgrade --all --silent
+#winget upgrade --all --include-unknown --accept-source-agreements --accept-package-agreements
 
 #Get-AppxPackage *AppInstaller* | Remove-AppxPackage
 #Add-AppxPackage -Path "D:\AppInstaller.Msixbundle" -ForceApplicationShutdow 
