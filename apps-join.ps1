@@ -1,12 +1,10 @@
 powercfg -change -standby-timeout-ac 0
 powercfg -change -monitor-timeout-ac 0
 
-Set-ExecutionPolicy RemoteSi
-
-Import-Module PowerShellGet
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 Install-Module -Name PSWindowsUpdate -Force -Scope CurrentUser
+Import-Module PSWindowsUpdate
 Get-WindowsUpdate
-Install-WindowsUpdate -AcceptAll
 
 
 Add-AppxPackage -Path "D:\AppInstaller.Msixbundle" -ForceApplicationShutdow
