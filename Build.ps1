@@ -5,6 +5,7 @@ Write-host Starting Windows Windows 11 Apps Build
 powercfg -change -standby-timeout-ac 0
 powercfg -change -monitor-timeout-ac 0
 
+
 winget source remove msstore
 winget source add --name msstore --arg "https://storeedgefd.dsx.mp.microsoft.com/v9.0"
 
