@@ -7,6 +7,8 @@ powercfg -change -monitor-timeout-ac 0
 
 Add-AppxPackage -Path 'https://github.com/microsoft/winget-cli/releases/download/v1.7.11132/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle' -ForceApplicationShutdown
 
+winget source update
+
 Start-Sleep -Seconds 3
 
 winget install -e --silent --accept-source-agreements --accept-package-agreements Dell.CommandUpdate
