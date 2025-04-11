@@ -5,6 +5,8 @@ Write-host Starting Windows Windows 11 Apps Build
 powercfg -change -standby-timeout-ac 0
 powercfg -change -monitor-timeout-ac 0
 
+Get-AppxPackage -AllUsers | Foreach {Try {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml" -ErrorAction Stop} Catch {Write-Host "Failed to update $($_.Name): $_"}}
+
 
 
 winget install -e --silent --accept-source-agreements --accept-package-agreements Dell.CommandUpdate
