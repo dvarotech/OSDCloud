@@ -5,6 +5,7 @@ Write-host Starting Windows Windows 11 Apps Build
 powercfg -change -standby-timeout-ac 0
 powercfg -change -monitor-timeout-ac 0
 
+winget source reset --force
 winget update --accept-source-agreements --accept-package-agreements
 
 winget install -e --silent --accept-source-agreements --accept-package-agreements Dell.CommandUpdate
