@@ -31,10 +31,6 @@ public class SendKeys {
 # Simulate pressing the Enter (OK) key
 [SendKeys]::SendEnter()
 
-
-#Get-AppxPackage -AllUsers | Foreach {Try {Add-AppxPackage -DisableDevelopmentMode -Register "$($_.InstallLocation)\AppXManifest.xml" -ErrorAction Stop} Catch {Write-Host "Failed to update $($_.Name): $_"}}
-
-winget upgrade --all -e --silent --accept-source-agreements --accept-package-agreements
 winget install -e --silent --accept-source-agreements --accept-package-agreements Dell.CommandUpdate
 winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Teams
 winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Edge
