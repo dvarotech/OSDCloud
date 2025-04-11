@@ -9,6 +9,7 @@ Write-host Starting Windows Windows 11 Apps Build
 powercfg -change -standby-timeout-ac 0
 powercfg -change -monitor-timeout-ac 0
 
+winget source reset --force
 ECHO Y | winget upgrade --all --include-unknown --accept-source-agreements --accept-package-agreements
 #winget upgrade --all --include-unknown --accept-source-agreements --accept-package-agreements
 
