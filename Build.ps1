@@ -1,32 +1,13 @@
 Write-host Starting Windows Windows 11 Apps Build
 
-#[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
-
-#choco install office365business --version 18526.20146 -y
-
-Install-Module microsoft.winget.client -Force -AllowClobber
-Import-Module microsoft.winget.client
-repair-wingetpackagemanager
-
-(New-Object System.Net.WebClient).DownloadFile("https://merlot.centrastage.net/csm/profile/downloadAgent/513d13b1-2a61-460f-8f2a-730c64acb7c4", "$env:TEMP/AgentInstall.exe");start-process "$env:TEMP/AgentInstall.exe"
+#(New-Object System.Net.WebClient).DownloadFile("https://merlot.centrastage.net/csm/profile/downloadAgent/513d13b1-2a61-460f-8f2a-730c64acb7c4", "$env:TEMP/AgentInstall.exe");start-process "$env:TEMP/AgentInstall.exe"
 
 powercfg -change -standby-timeout-ac 0
 powercfg -change -monitor-timeout-ac 0
 
-Install-Script -Name Update-InboxApp -FORCE
-#Get-AppxPackage | Update-InboxApp
-#Update-InboxApp "Microsoft.DesktopAppInstaller_8wekyb3d8bbwe"
 
-Install-Module microsoft.winget.client -Force -AllowClobber
-Import-Module microsoft.winget.client
-repair-wingetpackagemanager
 
-#ECHO Y | winget upgrade --all --include-unknown --accept-source-agreements --accept-package-agreements
-winget upgrade --all --include-unknown --accept-source-agreements --accept-package-agreements
-
-#Get-AppxPackage *AppInstaller* | Remove-AppxPackage
-#Add-AppxPackage -Path "D:\AppInstaller.Msixbundle" -ForceApplicationShutdow 
-#Add-AppxPackage -AppInstallerFile "D:\AppInstaller.Msixbundle"
+winget source agree --name msstore
 
 winget install -e --silent --accept-source-agreements --accept-package-agreements Dell.CommandUpdate
 #winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Teams
