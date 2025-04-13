@@ -21,8 +21,7 @@ choco install 7zip -y
 choco install vlc -y
 choco install onedrive -y
 
-
-choco upgrade -y
+choco upgrade all -y
 
 $dcuPath = "C:\Program Files (x86)\Dell\CommandUpdate\dcu-cli.exe"
 Start-Process $dcuPath -ArgumentList "/scan" -Wait
