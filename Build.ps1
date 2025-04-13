@@ -1,4 +1,4 @@
-Write-host Starting Windows Windows 11 Apps Build v4
+Write-host Starting Windows Windows 11 Apps Build v5
 
 #Set power plan to always on
 powercfg -change -standby-timeout-ac 0
