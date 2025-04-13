@@ -15,7 +15,6 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 choco install dellcommandupdate -y
 choco install office365proplus -y
-choco install office365business -y
 choco install microsoft-teams-new-bootstrapper -y
 choco install microsoft-edge -y
 choco install googlechrome -y
