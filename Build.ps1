@@ -13,6 +13,7 @@ powercfg -change -monitor-timeout-ac 0
 #installs chocolatey
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
+choco install microsoft-office-deployment /64 -y
 choco install dellcommandupdate -y
 choco install office365proplus -y
 choco install microsoft-teams-new-bootstrapper -y
