@@ -10,16 +10,17 @@ powercfg -change -monitor-timeout-ac 0
 #installs chocolatey
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
-choco install dellcommandupdate --version 5.4.0.20241021 -y
-choco install microsoft-teams-new-bootstrapper --version 1.0.2414501 -y
-choco install microsoft-edge --version 135.0.3179.73 -y
-choco install googlechrome --version 135.0.7049.85 -y
-choco install firefox --version 137.0.1 -y
-choco install adobereader --version 2025.1.20432 -y
-choco install 7zip --version 24.9.0 -y
-choco install vlc --version 3.0.21 -y
-choco install onedrive --version 25.46.310.5 -y
-choco install office365business --version 18526.20146 -y
+choco install dellcommandupdate -y
+choco install office365business -y
+choco install microsoft-teams-new-bootstrapper -y
+choco install microsoft-edge -y
+choco install googlechrome -y
+choco install firefox -y
+choco install adobereader -y
+choco install 7zip -y
+choco install vlc -y
+choco install onedrive -y
+
 
 choco upgrade -y
 
