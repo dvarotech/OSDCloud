@@ -1,25 +1,27 @@
 Write-host Starting Windows Windows 11 Apps Build v3
 
-#(New-Object System.Net.WebClient).DownloadFile("https://merlot.centrastage.net/csm/profile/downloadAgent/513d13b1-2a61-460f-8f2a-730c64acb7c4", "$env:TEMP/AgentInstall.exe");start-process "$env:TEMP/AgentInstall.exe"
+#Set power plan to always on
 powercfg -change -standby-timeout-ac 0
 powercfg -change -monitor-timeout-ac 0
-#Add-AppxPackage -Path 'https://github.com/microsoft/winget-cli/releases/download/v1.7.11132/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle' -ForceApplicationShutdown
-winget source update
 
-Start-Sleep -Seconds 3
+#installs datto
+(New-Object System.Net.WebClient).DownloadFile("https://merlot.centrastage.net/csm/profile/downloadAgent/513d13b1-2a61-460f-8f2a-730c64acb7c4", "$env:TEMP/AgentInstall.exe");start-process "$env:TEMP/AgentInstall.exe"
 
-winget install -e --silent --accept-source-agreements --accept-package-agreements Dell.CommandUpdate
-winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Teams
-winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Edge
-winget install -e --silent --accept-source-agreements --accept-package-agreements Google.Chrome
-winget install -e --silent --accept-source-agreements --accept-package-agreements Mozilla.Firefox
-winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Teams
-winget install -e --silent --accept-source-agreements --accept-package-agreements Adobe.Acrobat.Reader.64-bit
-winget install -e --silent --accept-source-agreements --accept-package-agreements 7zip.7zip
-winget install -e --silent --accept-source-agreements --accept-package-agreements WatchGuard.MobileVPNWithSSLClient
-winget install -e --silent --accept-source-agreements --accept-package-agreements VideoLAN.VLC
-winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.OneDrive
-winget install -e --silent --accept-source-agreements --accept-package-agreements Microsoft.Office
+#installs chocolatey
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+choco install dellcommandupdate --version 5.4.0.20241021 -y
+choco install microsoft-teams-new-bootstrapper --version 1.0.2414501 -y
+choco install microsoft-edge --version 135.0.3179.73 -y
+choco install googlechrome --version 135.0.7049.85 -y
+choco install firefox --version 137.0.1 -y
+choco install adobereader --version 2025.1.20432 -y
+choco install 7zip --version 24.9.0 -y
+choco install vlc --version 3.0.21 -y
+choco install onedrive --version 25.46.310.5 -y
+choco install office365business --version 18526.20146 -y
+
+choco upgrade -y
 
 $dcuPath = "C:\Program Files (x86)\Dell\CommandUpdate\dcu-cli.exe"
 Start-Process $dcuPath -ArgumentList "/scan" -Wait
