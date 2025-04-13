@@ -9,6 +9,8 @@ Import-Module PSWindowsUpdate
 Get-WindowsUpdate
 Install-WindowsUpdate -AcceptAll -IgnoreReboot
 
+winget install microsoft.office
+
 #installs datto
 (New-Object System.Net.WebClient).DownloadFile("https://merlot.centrastage.net/csm/profile/downloadAgent/513d13b1-2a61-460f-8f2a-730c64acb7c4", "$env:TEMP/AgentInstall.exe");start-process "$env:TEMP/AgentInstall.exe"
 
@@ -33,6 +35,6 @@ Start-Process $dcuPath -ArgumentList "/scan" -Wait
 Start-Process $dcuPath -ArgumentList "/applyUpdates -silent" -Wait
 
 
-winget install microsoft.office
+
 
 Start-Process SystemPropertiesComputerName
