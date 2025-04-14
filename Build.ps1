@@ -5,7 +5,8 @@ powercfg -change -standby-timeout-ac 0
 powercfg -change -monitor-timeout-ac 0
 
 $sp="C:\Program Files\WindowsPowerShell\Scripts";if(-not(Test-Path $sp)){New-Item -ItemType Directory -Path $sp};$p=[Environment]::GetEnvironmentVariable("PATH","Machine");if(-not $p.Contains($sp)){[Environment]::SetEnvironmentVariable("PATH","$p;$sp","Machine")};Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force;Install-PackageProvider -Name NuGet -Force -Scope CurrentUser;Install-Script -Name Get-WindowsAutopilotInfo -Force
- Get-WindowsAutopilotInfo -OutputFile c:\Users\localadmin\Desktop\AutopilotHWID.csv
+
+Get-WindowsAutopilotInfo -OutputFile c:\Users\localadmin\Desktop\AutopilotHWID.csv
 
 Write-host Installing Datto Agent
 #installs datto
