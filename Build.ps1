@@ -1,10 +1,10 @@
-Write-host Starting Windows Windows 11 Apps Build v7
+Write-host Starting Windows Windows 11 Apps Build v8
 
 #Set power plan to always on
 powercfg -change -standby-timeout-ac 0
 powercfg -change -monitor-timeout-ac 0
 
- Install-Script -Name Get-WindowsAutopilotInfo -Froce
+$sp="C:\Program Files\WindowsPowerShell\Scripts";if(-not(Test-Path $sp)){New-Item -ItemType Directory -Path $sp};$p=[Environment]::GetEnvironmentVariable("PATH","Machine");if(-not $p.Contains($sp)){[Environment]::SetEnvironmentVariable("PATH","$p;$sp","Machine")};Set-ExecutionPolicy RemoteSigned -Scope CurrentUser -Force;Install-PackageProvider -Name NuGet -Force -Scope CurrentUser;Install-Script -Name Get-WindowsAutopilotInfo -Force
  Get-WindowsAutopilotInfo -OutputFile c:\Users\localadmin\Desktop\AutopilotHWID.csv
 
 Write-host Installing Datto Agent
