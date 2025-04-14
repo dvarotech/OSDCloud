@@ -4,7 +4,7 @@ Write-host Starting Windows Windows 11 Apps Build v7
 powercfg -change -standby-timeout-ac 0
 powercfg -change -monitor-timeout-ac 0
 
- Install-Script -Name Get-WindowsAutopilotInfo
+ Install-Script -Name Get-WindowsAutopilotInfo -Froce
  Get-WindowsAutopilotInfo -OutputFile c:\Users\localadmin\Desktop\AutopilotHWID.csv
 
 Write-host Installing Datto Agent
