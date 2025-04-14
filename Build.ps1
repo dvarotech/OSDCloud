@@ -4,7 +4,8 @@ Write-host Starting Windows Windows 11 Apps Build v7
 powercfg -change -standby-timeout-ac 0
 powercfg -change -monitor-timeout-ac 0
 
-
+ Install-Script -Name Get-WindowsAutopilotInfo
+ Get-WindowsAutopilotInfo -OutputFile c:\Users\localadmin\Desktop\AutopilotHWID.csv
 
 Write-host Installing Datto Agent
 #installs datto
@@ -38,5 +39,8 @@ Write-host Check for Dell updates
 $dcuPath = "C:\Program Files (x86)\Dell\CommandUpdate\dcu-cli.exe"
 Start-Process $dcuPath -ArgumentList "/scan" -Wait
 Start-Process $dcuPath -ArgumentList "/applyUpdates -silent" -Wait
+
+
+ 
 
 Start-Process SystemPropertiesComputerName
