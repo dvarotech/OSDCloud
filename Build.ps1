@@ -21,6 +21,12 @@ Write-Host "Installing the RMM Agent..." -ForegroundColor Green
 (New-Object System.Net.WebClient).DownloadFile("https://merlot.centrastage.net/csm/profile/downloadAgent/513d13b1-2a61-460f-8f2a-730c64acb7c4", "$env:TEMP/AgentInstall.exe");start-process "$env:TEMP/AgentInstall.exe"
 Write-Host "RMM Agent installation complete."
 
+$msiUrl = "https://www.invgate.tech/media/updates/insight-agent-windows-3_41_0.msi"
+$msiPath = "$env:TEMP\insight-agent-windows-3_41_0.msi"
+Invoke-WebRequest -Uri $msiUrl -OutFile $msiPath
+Start-Process "msiexec.exe" -ArgumentList "/i `"$msiPath`" PROTOCOL='https' IP='aro.is.cloud.invgate.net' PORT='443' SECRET_KEY='03c1155565477588' /qn" -Wait
+
+
 
 # --- 3. Install Applications via Winget ---
 Write-Host "Installing standard applications using Winget..." -ForegroundColor Green
