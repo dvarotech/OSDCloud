@@ -5,6 +5,10 @@
 # NOTES: Run this script with Administrator privileges.
 # ===================================================================
 
+$serial = (Get-WmiObject Win32_BIOS).SerialNumber.Trim()
+$newName = "ARW-$serial"
+Rename-Computer -NewName $newName -Force
+
 # --- 1. Configure Power Settings ---
 Write-Host "Configuring power settings..." -ForegroundColor Green
 powercfg /change standby-timeout-ac 60
