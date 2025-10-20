@@ -7,11 +7,11 @@ Invoke-WebRequest -Uri "http://159.65.21.143/Build/Build.ps1" -OutFile "D:\Build
 Invoke-WebRequest -Uri "http://159.65.21.143/Build/Join.ps1" -OutFile "C:\Join.ps1"
 Invoke-WebRequest -Uri "http://159.65.21.143/Build/Join.ps1" -OutFile "D:\Join.ps1"
 
-Invoke-WebRequest -Uri "http://159.65.21.143/Build/Join.ps1" -OutFile "C:\StartBuild.cmd"
-Invoke-WebRequest -Uri "http://159.65.21.143/Build/Join.ps1" -OutFile "D:\StartBuild.cmd"
+Invoke-WebRequest -Uri "http://159.65.21.143/Build/StartBuild.cmd" -OutFile "C:\StartBuild.cmd"
+Invoke-WebRequest -Uri "http://159.65.21.143/Build/StartBuild.cmd" -OutFile "D:\StartBuild.cmd"
 
-Invoke-WebRequest -Uri "http://159.65.21.143/Build/Join.ps1" -OutFile "C:\StartJoin.cmd"
-Invoke-WebRequest -Uri "http://159.65.21.143/Build/Join.ps1" -OutFile "D:\StartJoin.cmd"
+Invoke-WebRequest -Uri "http://159.65.21.143/Build/StartJoin.cmd" -OutFile "C:\StartJoin.cmd"
+Invoke-WebRequest -Uri "http://159.65.21.143/Build/StartJoin.cmd" -OutFile "D:\StartJoin.cmd"
 
 Write-Host "Rebooting." -ForegroundColor Green
 Start-Sleep 5
