@@ -4,8 +4,8 @@ Write-Host "Downloading Post Install Script - 20-10-2025." -ForegroundColor Gree
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/dvarotech/OSDCloud/main/Build.ps1" -OutFile "C:\Build.ps1"
 Invoke-WebRequest -Uri "https://raw.githubusercontent.com/dvarotech/OSDCloud/main/Build.ps1" -OutFile "D:\Build.ps1"
 
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/dvarotech/OSDCloud/refs/heads/main/Join.ps1" -OutFile "C:\Build.ps1"
-Invoke-WebRequest -Uri "https://raw.githubusercontent.com/dvarotech/OSDCloud/refs/heads/main/Join.ps1" -OutFile "D:\Build.ps1"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/dvarotech/OSDCloud/refs/heads/main/Join.ps1" -OutFile "C:\Join.ps1"
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/dvarotech/OSDCloud/refs/heads/main/Join.ps1" -OutFile "D:\Join.ps1"
 
 Write-Host "Rebooting." -ForegroundColor Green
 Start-Sleep 5
